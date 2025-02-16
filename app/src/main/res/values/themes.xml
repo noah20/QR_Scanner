@@ -6,4 +6,17 @@
     </style>
 
     <style name="Theme.QRScanner" parent="Base.Theme.QRScanner" />
+
+    <style name="RoundBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_rounded_upper_side</item>
+        <item name="behavior_skipCollapsed">true</item>
+        <item name="behavior_fitToContents">true</item>
+        <item name="behavior_peekHeight">1000dp</item>
+    </style>
+
 </resources>

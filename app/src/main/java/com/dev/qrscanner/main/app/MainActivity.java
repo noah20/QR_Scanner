@@ -1,9 +1,7 @@
 package com.dev.qrscanner.main.app;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -13,13 +11,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.ActivityMainBinding;
+import com.dev.qrscanner.main.data.model.ScannerDataDialogUiConfig;
 import com.dev.qrscanner.main.ui.home.HomeViewModel;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.dev.qrscanner.utils.views.ScannerDataDialog;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanIntentResult;
 import com.journeyapps.barcodescanner.ScanOptions;
@@ -39,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleResult(ScanIntentResult result) {
         if (result.getContents() == null) {
-            Log.d("TAG", "noah here canceled: ");
+            ScannerDataDialogUiConfig config = new  ScannerDataDialogUiConfig("Canceled", "Scan canceled" , "got it");
+            ScannerDataDialog d = ScannerDataDialog.newInstance(config, null);
+            d.show(getSupportFragmentManager() , "canceled");
         } else {
-            saveCode(result.getContents());
-            Log.d("TAG", "noah here : Scanned: " + result.getContents());
+            showScannerDataDialog(result.getContents());
         }
+    }
+
+    private void showScannerDataDialog(String contents) {
+        ScannerDataDialogUiConfig config = new  ScannerDataDialogUiConfig("Success", contents , "Add to favorite");
+        ScannerDataDialog d = ScannerDataDialog.newInstance(config, () -> saveCode(contents));
+        d.show(getSupportFragmentManager() , "save");
     }
 
     private void saveCode(String content) {
