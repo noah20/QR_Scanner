@@ -1,0 +1,70 @@
+[versions]
+agp = "8.7.2"
+androidDatabaseSqlcipher = "4.5.3"
+desugar_jdk_libs = "2.1.4"
+desugar_jdk_libsVersion = "1.1.5"
+hiltCompiler = "2.51.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+lifecycleCommonJava8 = "2.6.1"
+lifecycleCompiler = "2.6.1"
+lifecycleViewmodelSavedstate = "2.6.1"
+lifecycleRuntime = "2.6.1"
+lifecycleLivedata = "2.6.1"
+lifecycleCommon = "2.6.1"
+lifecycleViewmodel = "2.6.1"
+material = "1.12.0"
+activity = "1.10.0"
+constraintlayout = "2.2.0"
+multidex = "2.0.1"
+navigationFragment = "2.8.2"
+navigationUi = "2.8.2"
+roomRuntime = "2.6.1"
+roomCompiler = "2.6.1"
+roomRxjava3 = "2.6.1"
+rxandroid = "3.0.2"
+rxjava = "3.1.6"
+sqlite = "2.4.0"
+zxingAndroidEmbedded = "4.3.0"
+legacySupportV4 = "1.0.0"
+lifecycleLivedataKtx = "2.8.7"
+lifecycleViewmodelKtx = "2.8.7"
+
+[libraries]
+android-database-sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "androidDatabaseSqlcipher" }
+desugar_jdk_libs-v115 = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libsVersion" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltCompiler" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCompiler" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewmodel" }
+lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycleCommon" }
+lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycleLivedata" }
+lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycleRuntime" }
+lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleViewmodelSavedstate" }
+lifecycle-compiler = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "lifecycleCompiler" }
+lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycleCommonJava8" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
+navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationUi" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragment" }
+room-rxjava3 = { module = "androidx.room:room-rxjava3", version.ref = "roomRxjava3" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+
