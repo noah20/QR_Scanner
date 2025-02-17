@@ -1,14 +1,9 @@
 package com.dev.qrscanner.main.ui.home;
 
-import android.util.Log;
-
-import androidx.lifecycle.ViewModel;
-
 import com.dev.qrscanner.main.app.BaseViewModel;
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.usecase.GetHistoryUseCase;
 import com.dev.qrscanner.main.domain.usecase.InsertHistoryItemUseCase;
-import com.dev.qrscanner.utils.AppExecutor;
 
 import javax.inject.Inject;
 

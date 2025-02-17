@@ -1,6 +1,6 @@
 package com.dev.qrscanner.main.domain.usecase;
 
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 
 import io.reactivex.rxjava3.core.Completable;
 

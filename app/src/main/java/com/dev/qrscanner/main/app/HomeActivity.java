@@ -22,7 +22,7 @@ import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.ActivityMainBinding;
 import com.dev.qrscanner.main.data.model.ScannerDataDialogUiConfig;
 import com.dev.qrscanner.main.ui.home.HomeViewModel;
-import com.dev.qrscanner.utils.views.ScannerDataDialog;
+import com.dev.qrscanner.main.ui.dialogs.ScannerDataDialog;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanIntentResult;
 import com.journeyapps.barcodescanner.ScanOptions;

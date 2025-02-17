@@ -1,6 +1,6 @@
 package com.dev.qrscanner.main.data.usecase;
 
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.repo.HistoryRepo;
 import com.dev.qrscanner.main.domain.usecase.InsertHistoryItemUseCase;
 

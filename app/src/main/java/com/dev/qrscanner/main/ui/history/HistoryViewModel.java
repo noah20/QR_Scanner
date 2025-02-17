@@ -3,7 +3,7 @@ package com.dev.qrscanner.main.ui.history;
 import androidx.lifecycle.LiveData;
 
 import com.dev.qrscanner.main.app.BaseViewModel;
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.usecase.GetHistoryUseCase;
 import com.dev.qrscanner.main.domain.usecase.UpdateItemUseCase;
 

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.CodeItemLayoutBinding;
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import java.util.ArrayList;
 import java.util.List;
 

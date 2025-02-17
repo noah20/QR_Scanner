@@ -1,4 +1,4 @@
-package com.dev.qrscanner.main.ui.favorit;
+package com.dev.qrscanner.main.ui.favorite;
 
 import androidx.lifecycle.ViewModelProvider;
 

@@ -1,9 +1,9 @@
-package com.dev.qrscanner.main.ui.favorit;
+package com.dev.qrscanner.main.ui.favorite;
 
 import androidx.lifecycle.LiveData;
 
 import com.dev.qrscanner.main.app.BaseViewModel;
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.usecase.GetFavoritesUseCase;
 import com.dev.qrscanner.main.domain.usecase.UpdateItemUseCase;
 

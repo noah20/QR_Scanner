@@ -1,4 +1,4 @@
-package com.dev.qrscanner.main.data.model;
+package com.dev.qrscanner.main.domain.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

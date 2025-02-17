@@ -1,4 +1,4 @@
-package com.dev.qrscanner.utils;
+package com.dev.qrscanner.core;
 
 
 import android.os.Handler;

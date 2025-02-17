@@ -3,7 +3,7 @@ package com.dev.qrscanner.main.data.repo;
 import androidx.lifecycle.LiveData;
 
 import com.dev.qrscanner.main.data.db.DataBaseDao;
-import com.dev.qrscanner.main.data.model.QrCodeModel;
+import com.dev.qrscanner.main.domain.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.repo.HistoryRepo;
 
 import java.util.List;
