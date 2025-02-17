@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/navigation_favorite"
-        android:name="com.dev.qrscanner.main.ui.favorite.FavoritesFragment"
+        android:name="com.dev.qrscanner.app.ui.favorite.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.dev.qrscanner.main.ui.history.HistoryFragment"
+        android:name="com.dev.qrscanner.app.ui.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>
