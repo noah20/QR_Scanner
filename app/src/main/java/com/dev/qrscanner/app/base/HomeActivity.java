@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
     private void validateAndSave(String contents) {
-        if(contents == null || contents.isEmpty()){
+        if(contents == null || contents.isBlank()){
             ScannerDataDialogUiConfig config = new ScannerDataDialogUiConfig(getString(R.string.invalid), getString(R.string.code_is_empty_or_invalid), getString(R.string.rescan));
             ScannerDataDialog d = ScannerDataDialog.newInstance(config, this::onScanClick);
             d.show(getSupportFragmentManager(), "canceled");
