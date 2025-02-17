@@ -8,5 +8,5 @@ import java.util.List;
 public interface GetFavoritesUseCase {
 
 
-    public LiveData<List<QrCodeModel>> getAlFavorites() ;
+    public LiveData<List<QrCodeModel>> getAllFavorites() ;
 }

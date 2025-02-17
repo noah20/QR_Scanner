@@ -1,14 +1,13 @@
 package com.dev.qrscanner.main.ui.history;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.CodeItemLayoutBinding;
 import com.dev.qrscanner.main.data.model.QrCodeModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +25,13 @@ public class QrCodesAdapter extends RecyclerView.Adapter<QrCodesAdapter.QrCodeVi
 
     private final ArrayList<QrCodeModel> codeModels = new ArrayList<>();
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setCodes(List<QrCodeModel> codeModels) {
-        if (codeModels == null || codeModels.isEmpty())
+        if (codeModels == null)
             return;
         this.codeModels.clear();
         this.codeModels.addAll(codeModels);
-        notifyItemRangeChanged(0, codeModels.size());
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -66,13 +66,12 @@ public class QrCodesAdapter extends RecyclerView.Adapter<QrCodesAdapter.QrCodeVi
             super(binding.getRoot());
             this.binding = binding;
         }
-
         void bindData(QrCodeModel qrCodeModel) {
             if (binding != null) {
                 binding.tvCode.setText(qrCodeModel.getQrCode());
                 binding.ivFavorite.setImageResource(qrCodeModel.isFavorite() ? R.drawable.ic_favorite : R.drawable.ic_un_favorite);
             }
-
         }
+
     }
 }

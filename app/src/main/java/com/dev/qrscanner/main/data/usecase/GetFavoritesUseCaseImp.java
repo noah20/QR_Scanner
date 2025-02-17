@@ -19,7 +19,7 @@ public class GetFavoritesUseCaseImp implements GetFavoritesUseCase {
     }
 
     @Override
-    public LiveData<List<QrCodeModel>> getAlFavorites() {
+    public LiveData<List<QrCodeModel>> getAllFavorites() {
         return favoritesRepo.getAlFavorites();
     }
 }

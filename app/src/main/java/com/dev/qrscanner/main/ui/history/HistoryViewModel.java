@@ -29,9 +29,10 @@ public class HistoryViewModel extends BaseViewModel {
         this.updateItemUseCase = updateItemUseCase;
     }
 
-    public LiveData<List<QrCodeModel>> getCodes() {
+    public LiveData<List<QrCodeModel>> getHistory() {
         return historyUseCase.getAllHistory();
     }
+
     public void updateItem(QrCodeModel qrCodeModel) {
         if(qrCodeModel == null)
             return;

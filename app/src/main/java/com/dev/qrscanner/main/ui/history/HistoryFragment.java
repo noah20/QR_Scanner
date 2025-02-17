@@ -44,7 +44,7 @@ public class HistoryFragment extends BaseFragment {
     }
 
     private void initObservers() {
-        mViewModel.getCodes().observe(getViewLifecycleOwner(),qrCodeHistoryModels -> {
+        mViewModel.getHistory().observe(getViewLifecycleOwner(), qrCodeHistoryModels -> {
             mAdapter.setCodes(qrCodeHistoryModels);
         });
 

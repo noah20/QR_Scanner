@@ -6,15 +6,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.FragmentFavoritesBinding;
 import com.dev.qrscanner.main.app.BaseFragment;
+import com.dev.qrscanner.main.ui.history.QrCodesAdapter;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -23,6 +22,8 @@ public class FavoritesFragment extends BaseFragment {
 
     private FavoritesViewModel mViewModel;
     private FragmentFavoritesBinding mBinding;
+    private QrCodesAdapter mAdapter;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +38,34 @@ public class FavoritesFragment extends BaseFragment {
         if(mBinding == null)
             mBinding = FragmentFavoritesBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUpRecyclerView();
+        initObservers();
+    }
+
+    private void initObservers() {
+        mViewModel.getFavorites().observe(getViewLifecycleOwner(), qrCodeHistoryModels -> {
+            mAdapter.setCodes(qrCodeHistoryModels);
+        });
+    }
+
+    private void setUpRecyclerView() {
+        mAdapter = new QrCodesAdapter();
+        mBinding.rvFavorites.setAdapter(mAdapter);
+        mAdapter.setListener(qrCodeModel -> {
+            mViewModel.updateItem(qrCodeModel);
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBinding = null;
     }
 
 }
