@@ -13,4 +13,7 @@
     <string name="permission_required">Permission required</string>
     <string name="camera_permission_denied">Camera Permission denied</string>
     <string name="grant">Grant</string>
+    <string name="code_is_empty_or_invalid">Invalid QR Code Please try again</string>
+    <string name="invalid">Invalid</string>
+    <string name="rescan">rescan</string>
 </resources>

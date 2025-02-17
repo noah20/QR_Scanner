@@ -49,11 +49,20 @@ public class HomeActivity extends AppCompatActivity {
             ScannerDataDialog d = ScannerDataDialog.newInstance(config, null);
             d.show(getSupportFragmentManager(), "canceled");
         } else {
-            mViewModel.insertCode(result.getContents());
+            validateAndSave(result.getContents());
+        }
+    }
+    private void validateAndSave(String contents) {
+        if(contents == null || contents.isEmpty()){
+            ScannerDataDialogUiConfig config = new ScannerDataDialogUiConfig(getString(R.string.invalid), getString(R.string.code_is_empty_or_invalid), getString(R.string.rescan));
+            ScannerDataDialog d = ScannerDataDialog.newInstance(config, this::onScanClick);
+            d.show(getSupportFragmentManager(), "canceled");
+        }else {
+            mViewModel.insertCode(contents);
         }
     }
 
-    public void onScanClick(View view) {
+    public void onScanClick() {
 
         if (permissionGranted()) {
             barcodeLauncher.launch(new ScanOptions());
@@ -103,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setActions() {
-        binding.btnScan.setOnClickListener(this::onScanClick);
+        binding.btnScan.setOnClickListener(view -> onScanClick());
     }
 
 }
