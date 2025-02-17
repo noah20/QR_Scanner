@@ -2,15 +2,13 @@ package com.dev.qrscanner.main.data.usecase;
 
 import androidx.lifecycle.LiveData;
 
-import com.dev.qrscanner.main.data.model.QrCodeHistoryModel;
+import com.dev.qrscanner.main.data.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.repo.HistoryRepo;
 import com.dev.qrscanner.main.domain.usecase.GetHistoryUseCase;
 
 import java.util.List;
 
 import javax.inject.Inject;
-
-import io.reactivex.rxjava3.core.Single;
 
 public class GetHistoryUseCaseImp implements GetHistoryUseCase {
 
@@ -22,7 +20,7 @@ public class GetHistoryUseCaseImp implements GetHistoryUseCase {
     }
 
     @Override
-    public LiveData<List<QrCodeHistoryModel>> getAllHistory() {
+    public LiveData<List<QrCodeModel>> getAllHistory() {
         return historyRepo.getAllHistory();
     }
 

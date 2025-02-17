@@ -4,7 +4,8 @@ import com.dev.qrscanner.main.data.model.QrCodeModel;
 
 import io.reactivex.rxjava3.core.Completable;
 
-public interface InsertHistoryItemUseCase {
+public interface UpdateItemUseCase {
 
-    public Completable insert(QrCodeModel code);
+    public Completable update(QrCodeModel code);
+
 }

@@ -1,5 +1,6 @@
 package com.dev.qrscanner.main.data.usecase;
 
+import com.dev.qrscanner.main.data.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.repo.HistoryRepo;
 import com.dev.qrscanner.main.domain.usecase.InsertHistoryItemUseCase;
 
@@ -17,7 +18,7 @@ public class InsertHistoryItemUseCaseImp implements InsertHistoryItemUseCase {
     }
 
     @Override
-    public Completable insert(String code) {
+    public Completable insert(QrCodeModel code) {
        return historyRepo.insertItem(code);
     }
 

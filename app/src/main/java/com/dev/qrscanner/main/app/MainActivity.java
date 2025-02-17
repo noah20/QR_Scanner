@@ -40,14 +40,8 @@ public class MainActivity extends AppCompatActivity {
             ScannerDataDialog d = ScannerDataDialog.newInstance(config, null);
             d.show(getSupportFragmentManager() , "canceled");
         } else {
-            showScannerDataDialog(result.getContents());
+            saveCode(result.getContents());
         }
-    }
-
-    private void showScannerDataDialog(String contents) {
-        ScannerDataDialogUiConfig config = new  ScannerDataDialogUiConfig("Success", contents , "Add to favorite");
-        ScannerDataDialog d = ScannerDataDialog.newInstance(config, () -> saveCode(contents));
-        d.show(getSupportFragmentManager() , "save");
     }
 
     private void saveCode(String content) {

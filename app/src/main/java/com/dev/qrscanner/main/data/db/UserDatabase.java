@@ -9,17 +9,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
-
-import com.dev.qrscanner.main.data.model.FavoriteModel;
-import com.dev.qrscanner.main.data.model.QrCodeHistoryModel;
-
+import com.dev.qrscanner.main.data.model.QrCodeModel;
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SupportFactory;
 
 import java.nio.charset.StandardCharsets;
 
 
-@Database(entities = {FavoriteModel.class,QrCodeHistoryModel.class}, version = 1, exportSchema = false)
+@Database(entities = { QrCodeModel.class}, version = 1, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
 
     public abstract DataBaseDao userDao();

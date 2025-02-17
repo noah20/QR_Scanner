@@ -2,15 +2,12 @@ package com.dev.qrscanner.main.data.usecase;
 
 import androidx.lifecycle.LiveData;
 
-import com.dev.qrscanner.main.data.model.FavoriteModel;
+import com.dev.qrscanner.main.data.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.repo.FavoritesRepo;
 import com.dev.qrscanner.main.domain.usecase.GetFavoritesUseCase;
-
 import java.util.List;
-
 import javax.inject.Inject;
 
-import io.reactivex.rxjava3.core.Single;
 
 public class GetFavoritesUseCaseImp implements GetFavoritesUseCase {
 
@@ -22,7 +19,7 @@ public class GetFavoritesUseCaseImp implements GetFavoritesUseCase {
     }
 
     @Override
-    public LiveData<List<FavoriteModel>> getAlFavorites() {
+    public LiveData<List<QrCodeModel>> getAlFavorites() {
         return favoritesRepo.getAlFavorites();
     }
 }

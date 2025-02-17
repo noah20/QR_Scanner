@@ -4,16 +4,29 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.dev.qrscanner.R;
 import com.dev.qrscanner.databinding.CodeItemLayoutBinding;
-import com.dev.qrscanner.main.data.model.QrCodeHistoryModel;
+import com.dev.qrscanner.main.data.model.QrCodeModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class QrCodesAdapter extends RecyclerView.Adapter<QrCodesAdapter.QrCodeViewHolder> {
 
-    private final ArrayList<QrCodeHistoryModel> codeModels = new ArrayList<>();
+    public interface OnFavoriteClick {
+        void onClick(QrCodeModel qrCodeModel);
+    }
 
-    public void setCodes(List<QrCodeHistoryModel> codeModels) {
+    protected OnFavoriteClick mListener;
+
+    public void setListener(OnFavoriteClick listener) {
+        mListener = listener;
+    }
+
+    private final ArrayList<QrCodeModel> codeModels = new ArrayList<>();
+
+    public void setCodes(List<QrCodeModel> codeModels) {
         if (codeModels == null || codeModels.isEmpty())
             return;
         this.codeModels.clear();
@@ -32,7 +45,13 @@ public class QrCodesAdapter extends RecyclerView.Adapter<QrCodesAdapter.QrCodeVi
 
     @Override
     public void onBindViewHolder(@NonNull QrCodeViewHolder holder, int position) {
-        holder.bindData(codeModels.get(position));
+        QrCodeModel obj = codeModels.get(position);
+        holder.bindData(obj);
+        holder.binding.ivFavorite.setOnClickListener(view -> {
+            if(mListener != null){
+                mListener.onClick(obj);
+            }
+        });
     }
 
     @Override
@@ -48,11 +67,12 @@ public class QrCodesAdapter extends RecyclerView.Adapter<QrCodesAdapter.QrCodeVi
             this.binding = binding;
         }
 
-        void bindData(QrCodeHistoryModel qrCodeModel) {
+        void bindData(QrCodeModel qrCodeModel) {
             if (binding != null) {
                 binding.tvCode.setText(qrCodeModel.getQrCode());
+                binding.ivFavorite.setImageResource(qrCodeModel.isFavorite() ? R.drawable.ic_favorite : R.drawable.ic_un_favorite);
             }
-        }
 
+        }
     }
 }

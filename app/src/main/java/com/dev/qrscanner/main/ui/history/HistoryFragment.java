@@ -53,6 +53,9 @@ public class HistoryFragment extends BaseFragment {
     private void setUpRecyclerView() {
         mAdapter = new QrCodesAdapter();
         mBinding.rvHistory.setAdapter(mAdapter);
+        mAdapter.setListener(qrCodeModel -> {
+            mViewModel.updateItem(qrCodeModel);
+        });
     }
 
     @Override

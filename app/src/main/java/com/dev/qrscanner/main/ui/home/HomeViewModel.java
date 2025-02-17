@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.ViewModel;
 
 import com.dev.qrscanner.main.app.BaseViewModel;
+import com.dev.qrscanner.main.data.model.QrCodeModel;
 import com.dev.qrscanner.main.domain.usecase.GetHistoryUseCase;
 import com.dev.qrscanner.main.domain.usecase.InsertHistoryItemUseCase;
 import com.dev.qrscanner.utils.AppExecutor;
@@ -33,7 +34,7 @@ public class HomeViewModel extends BaseViewModel {
     GetHistoryUseCase getHistoryUseCase;
 
     public void insertCode(String code) {
-        Disposable d = insertHistoryItemUseCase.insert(code)
+        Disposable d = insertHistoryItemUseCase.insert(new QrCodeModel(code,false))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(() ->{});

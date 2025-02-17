@@ -7,38 +7,31 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.dev.qrscanner.main.data.model.FavoriteModel;
-import com.dev.qrscanner.main.data.model.QrCodeHistoryModel;
+import com.dev.qrscanner.main.data.model.QrCodeModel;
+
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.core.Maybe;
 
 @Dao
 public interface DataBaseDao {
 
-    @Insert( entity = FavoriteModel.class ,onConflict = OnConflictStrategy.REPLACE)
-    Completable insertFavorites(FavoriteModel qr);
+
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    Completable updateFavorites(FavoriteModel qr);
+    Completable updateCode(QrCodeModel qr);
 
-    @Delete
-    Completable deleteFavorites(FavoriteModel qr);
 
-    @Query("DELETE FROM favorites_table")
-    Completable deleteAllFavorites();
-
-    @Query("SELECT * FROM favorites_table")
-    LiveData<List<FavoriteModel>> getAllFavorites();
+    @Query("SELECT * FROM history_table where isFavorite = 1")
+    LiveData<List<QrCodeModel>> getAllFavorites();
 
     @Query("SELECT * FROM history_table")
-    LiveData<List<QrCodeHistoryModel>> getAllHistory();
+    LiveData<List<QrCodeModel>> getAllHistory();
 
     @Query("DELETE FROM history_table")
     Completable deleteAllHistory();
 
-    @Insert( entity = QrCodeHistoryModel.class, onConflict = OnConflictStrategy.REPLACE)
-    Completable insertHistoryItem(QrCodeHistoryModel qr);
+    @Insert( entity = QrCodeModel.class, onConflict = OnConflictStrategy.REPLACE)
+    Completable insertHistoryItem(QrCodeModel qr);
 
 }
